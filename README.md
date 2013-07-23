@@ -25,7 +25,7 @@ Usage: tr [options]
     -c, --count        Tweet count
     -r, --rate         Refresh Rate in seconds
 ```
-## Example
+## Output
 
 ```
   Lifehacker
