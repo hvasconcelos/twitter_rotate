@@ -18,21 +18,19 @@ module TwitterRotate
     }
     
     HOME_TIME_LINE = -> (client,options) {
-      puts "Getting Home Timeline ..."
+      #puts "Getting Home Timeline ..."
       client.home_timeline :count => options[:tweet_count]
     }
 
-    def initialize( options = {} )
-      
+    def initialize( opts = {} )
       authorize unless File.exists? AUTH_FILE  
       @auth = YAML.load(File.open(AUTH_FILE)) 
       @options = { 
         :refresh_rate => 300 , 
         :rotate_time => 10 ,
-        :tweet_count => 30,
+        :tweet_count => 30 ,
         :tweet_func => HOME_TIME_LINE
-      }.merge(options)
-    
+      }.merge(opts)
       @client = Twitter::Client.new(
        :consumer_key => @auth["consumer_key"] ,
        :consumer_secret => @auth["consumer_secret"]  ,
@@ -98,11 +96,12 @@ module TwitterRotate
     end
 
     def rotate
+      puts "Starting wait for tweet stream..."
       while 1
         tweet = next_tweet
         if tweet!=nil
           puts "  "+tweet[:user][:name].colorize(:yellow)
-          puts "  "+tweet[:text]+"\n"*2
+          puts "  "+tweet[:text].gsub(/[\s\t\r\n\f]/, ' ')+"\n"*2
         end 
         sleep( @options[:rotate_time] )
       end

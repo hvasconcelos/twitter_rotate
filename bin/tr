@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require "twitter_rotate"
+require "slop"
+
+opts = Slop.parse do 
+  banner "Usage: tr command [options]"
+  
+  on "v", "version",'Print the version' do
+    puts "Version "+TwitterRotate::VERSION
+    exit 0
+  end
+  
+  on "h" ,"help","Print Help"  do 
+    puts self.to_s
+    exit 0
+  end 
+
+  on 't' ,"time", "Time between prints" , argument: :optional
+  on 'c' ,"count", "Tweet count", argument: :optional 
+  on 'r' ,"rate", "Refresh Rate in seconds", argument: :optional
+end
+
+o = {}
+o[:rotate_time] = opts[:time] if opts.time? 
+o[:tweet_count] = opts[:count] if opts.count?
+o[:refresh_rate] = opts[:rate] if opts.rate?
+puts "-"*80
+puts "  Twitter Rotate"
+puts "-"*80
+rotator = TwitterRotate::TwitterRotator.new o
+rotator.run 
+
+while 1 
+  sleep 1 
+end 
+
