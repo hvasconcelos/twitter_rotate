@@ -1,6 +1,5 @@
 # TwitterRotate
 
-TODO: Write a gem description
 
 ## Installation
 
@@ -18,8 +17,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
-
+```
+Usage: tr [options]
+    -v, --version      Print the version
+    -h, --help         Print Help
+    -t, --time         Time between prints
+    -c, --count        Tweet count
+    -r, --rate         Refresh Rate in seconds
+```
 ## Contributing
 
 1. Fork it
