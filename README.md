@@ -18,7 +18,7 @@ Or install it yourself as:
 ## Usage
 
 ```
-Usage: tr [options]
+Usage: twitterr [options]
     -v, --version      Print the version
     -h, --help         Print Help
     -t, --time         Time between prints
@@ -43,9 +43,9 @@ Usage: tr [options]
   Pplware
   PCLinuxOS – 3 novas versões de manutenção disponíveis: PCLinuxOS: MATE, LXDE e MiniKDE Uma das distribuições p... http://t.co/EN4UM27ba8
 ```
-
+ 
 ## Contributing
-
+ 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)

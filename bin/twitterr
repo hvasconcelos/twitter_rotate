@@ -4,7 +4,7 @@ require "twitter_rotate"
 require "slop"
 
 opts = Slop.parse do 
-  banner "Usage: tr [options]"
+  banner "Usage: twitterr [options]"
   
   on "v", "version",'Print the version' do
     puts "Version "+TwitterRotate::VERSION
